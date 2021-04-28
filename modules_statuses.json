@@ -1,0 +1,7 @@
+{
+    "Auth": true,
+    "Appointment": true,
+    "Customer": true,
+    "Billing": true,
+    "Core": true
+}
