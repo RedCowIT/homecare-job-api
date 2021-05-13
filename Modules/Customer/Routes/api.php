@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/customer', function (Request $request) {
-    return $request->user();
+Route::group([
+    'middleware' => ['auth:api']
+], function () {
+
+    Route::resource('customers',
+        'CustomerController',
+        config('app.route_resource.standard'));
+
+    Route::resource('customerAddresses',
+        'CustomerAddressController',
+        config('app.route_resource.standard'));
+
 });

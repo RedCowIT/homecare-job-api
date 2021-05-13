@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,40 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/appointment', function (Request $request) {
-    return $request->user();
+
+Route::group([
+    'middleware' => ['auth:api']
+], function () {
+
+    Route::resource('appointments',
+        'AppointmentController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('appointmentNoAnswers',
+        'AppointmentNoAnswerController',
+        config('app.route_resource.standard'));
+
+    Route::resource('appointmentNoAnswerReasons',
+        'AppointmentNoAnswerReasonController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('appointmentCallTypes',
+        'AppointmentCallTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('appointmentStatuses',
+        'AppointmentStatusController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('appointmentTypes',
+        'AppointmentTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('callTypes',
+        'CallTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('callTypeClasses',
+        'CallTypeClassController',
+        config('app.route_resource.readonly'));
 });

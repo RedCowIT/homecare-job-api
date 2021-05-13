@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\DevDropTables;
+use App\Console\Commands\DevFlush;
 use App\Console\Commands\DevReset;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         DevDropTables::class,
-        DevReset::class
+        DevReset::class,
+        DevFlush::class
     ];
 
     /**

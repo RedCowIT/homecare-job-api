@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,6 +122,22 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+
+    /*
+     * Com,Resource controller defaults
+     */
+    'route_resource' => [
+        'readonly' => [
+            'only' => [
+                'index', 'show'
+            ]
+        ],
+        'standard' => [
+            'only' => [
+                'index', 'store', 'show', 'update', 'destroy'
+            ]
+        ]
+    ],
 
     /*
     |--------------------------------------------------------------------------

@@ -31,7 +31,6 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-        $this->bindServices();
     }
 
     /**
@@ -42,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(AuthBindingsProvider::class);
     }
 
     /**
@@ -112,16 +112,5 @@ class AuthServiceProvider extends ServiceProvider
             }
         }
         return $paths;
-    }
-
-    private function bindServices()
-    {
-        $this->app->bind(UserService::class, function ($app) {
-            if (env('MOCK_DATA', false)) {
-                return new MockUserService();
-            } else {
-                return new WebUserService();
-            }
-        });
     }
 }

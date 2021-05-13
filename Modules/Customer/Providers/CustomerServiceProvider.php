@@ -2,11 +2,14 @@
 
 namespace Modules\Customer\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
+use Modules\Core\Support\BindsServices;
 
 class CustomerServiceProvider extends ServiceProvider
 {
+    use BindsServices;
+
     /**
      * @var string $moduleName
      */
@@ -38,6 +41,7 @@ class CustomerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(CustomerBindingsProvider::class);
     }
 
     /**

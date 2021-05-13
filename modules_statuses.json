@@ -3,5 +3,7 @@
     "Appointment": true,
     "Customer": true,
     "Billing": true,
-    "Core": true
+    "Core": true,
+    "Plan": true,
+    "Product": true
 }

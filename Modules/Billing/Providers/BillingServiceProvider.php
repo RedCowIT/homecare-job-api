@@ -38,6 +38,7 @@ class BillingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(BillingBindingsProvider::class);
     }
 
     /**
