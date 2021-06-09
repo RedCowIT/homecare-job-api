@@ -22,6 +22,18 @@ class MockCustomerService extends MockEntityService implements CustomerService
             "email2" => "",
             "DOB" => "1970-11-20",
             "DDReference" => ""
+        ],
+        [
+            "id" => 2,
+            "customerTypeId" => 1,
+            "name" => "Alicia Keys",
+            "titleId" => 2,
+            "phone1" => "01511231234",
+            "phone2" => "",
+            "email1" => "aliciakeys@example.org",
+            "email2" => "",
+            "DOB" => "1970-11-20",
+            "DDReference" => ""
         ]
     ];
 }

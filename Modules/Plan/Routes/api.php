@@ -21,4 +21,12 @@ Route::group([
         'PlanPaymentPeriodController',
         config('app.route_resource.readonly'));
 
+    Route::resource('planTypes',
+        'PlanTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('plans',
+        'PlanController',
+        config('app.route_resource.standard'));
+
 });

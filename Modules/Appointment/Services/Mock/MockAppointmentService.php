@@ -36,8 +36,8 @@ class MockAppointmentService extends MockEntityService implements AppointmentSer
             ],
             [
                 "id" => 2,
-                "customerId" => 1,
-                "addressId" => 1,
+                "customerId" => 2,
+                "addressId" => 2,
                 "appointmentTypeId" => 3,   //NCO
                 "appointmentStatusId" => 1,
                 "engineerId" => 1,

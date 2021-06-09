@@ -21,6 +21,17 @@ class MockCustomerAddressService extends MockEntityService implements CustomerAd
             "address4" => "",
             "country" => "England",
             "postcode" => "L1 0BP"
+        ],
+        [
+            "id" => 2,
+            "customerId" => 2,
+            "isDefault" => true,
+            "address1" => "10 Jamaica St",
+            "address2" => "Liverpool",
+            "address3" => "",
+            "address4" => "",
+            "country" => "England",
+            "postcode" => "L1 0BP"
         ]
     ];
 }
