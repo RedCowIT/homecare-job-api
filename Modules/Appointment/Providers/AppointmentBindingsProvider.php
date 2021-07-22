@@ -8,6 +8,7 @@ use Modules\Appointment\Services\Interfaces\AppointmentNoAnswerService;
 use Modules\Appointment\Services\Interfaces\AppointmentService;
 use Modules\Appointment\Services\Interfaces\AppointmentStatusService;
 use Modules\Appointment\Services\Interfaces\AppointmentTypeService;
+use Modules\Appointment\Services\Interfaces\AppointmentVisitService;
 use Modules\Appointment\Services\Interfaces\CallTypeClassService;
 use Modules\Appointment\Services\Interfaces\CallTypeService;
 use Modules\Appointment\Services\Mock\MockAppointmentCallTypeService;
@@ -16,6 +17,7 @@ use Modules\Appointment\Services\Mock\MockAppointmentNoAnswerService;
 use Modules\Appointment\Services\Mock\MockAppointmentService;
 use Modules\Appointment\Services\Mock\MockAppointmentStatusService;
 use Modules\Appointment\Services\Mock\MockAppointmentTypeService;
+use Modules\Appointment\Services\Mock\MockAppointmentVisitService;
 use Modules\Appointment\Services\Mock\MockCallTypeClassService;
 use Modules\Appointment\Services\Mock\MockCallTypeService;
 use Modules\Core\Providers\BindingsServiceProvider;
@@ -47,6 +49,10 @@ class AppointmentBindingsProvider extends BindingsServiceProvider
             ],
             AppointmentTypeService::class => [
                 'mock' => MockAppointmentTypeService::class,
+                'api' => null
+            ],
+            AppointmentVisitService::class => [
+                'mock' => MockAppointmentVisitService::class,
                 'api' => null
             ],
             CallTypeService::class => [

@@ -25,6 +25,10 @@ Route::group([
         'CustomerAddressController',
         config('app.route_resource.standard'));
 
+    Route::resource('customerAppliances',
+        'CustomerApplianceController',
+        config('app.route_resource.standard'));
+
     Route::resource('customerPlans',
         'CustomerPlanController',
         config('app.route_resource.standard'));

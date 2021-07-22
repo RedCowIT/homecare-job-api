@@ -42,6 +42,10 @@ Route::group([
         'AppointmentTypeController',
         config('app.route_resource.readonly'));
 
+    Route::resource('appointmentVisits',
+        'AppointmentVisitController',
+        config('app.route_resource.standard'));
+
     Route::resource('callTypes',
         'CallTypeController',
         config('app.route_resource.readonly'));

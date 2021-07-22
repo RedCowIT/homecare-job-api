@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/billing', function (Request $request) {
-    return $request->user();
+Route::group([
+    'middleware' => ['auth:api']
+], function () {
+
+    Route::resource('quotes',
+        'Quote\QuoteController',
+        config('app.route_resource.standard'));
+
+    Route::resource('quoteItems',
+        'Quote\QuoteItemController',
+        config('app.route_resource.standard'));
+
+    Route::resource('quoteItemTypes',
+        'Quote\QuoteItemTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('quoteApplianceDetails',
+        'Quote\QuoteApplianceDetailController',
+        config('app.route_resource.standard'));
 });

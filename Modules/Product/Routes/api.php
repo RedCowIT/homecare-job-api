@@ -17,8 +17,31 @@ Route::group([
     'middleware' => ['auth:api']
 ], function () {
 
+    Route::resource('applianceModels',
+        'ApplianceModelController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('appliancePriceRanges',
+        'AppliancePriceRangeController',
+        config('app.route_resource.readonly'));
+
     Route::resource('applianceTypes',
         'ApplianceTypeController',
         config('app.route_resource.readonly'));
 
+    Route::resource('brands',
+        'BrandController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('commercialProducts',
+        'CommercialProductController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('manufacturers',
+        'ManufacturerController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('products',
+        'ProductController',
+        config('app.route_resource.readonly'));
 });
