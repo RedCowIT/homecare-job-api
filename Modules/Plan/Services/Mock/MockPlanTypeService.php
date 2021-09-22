@@ -14,17 +14,20 @@ class MockPlanTypeService extends MockEntityService implements PlanTypeService
         [
             'id' => 1,
             'description' => 'Vacuum Service Plan',
-            'appImgURL' => ''
+            'icon' => '',
+            'commercial' => true
         ],
         [
             'id' => 2,
             'description' => 'Appliance Repair Plan',
-            'appImgURL' => ''
+            'icon' => '',
+            'commercial' => true
         ],
         [
             'id' => 3,
             'description' => 'Finance',
-            'appImgURL' => ''
+            'icon' => '',
+            'commercial' => false
         ]
     ];
 }

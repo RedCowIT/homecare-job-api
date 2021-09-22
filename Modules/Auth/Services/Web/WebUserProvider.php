@@ -25,8 +25,8 @@ class WebUserProvider implements UserProvider
 
     public function retrieveById($identifier)
     {
-        dump('retrieveById', $identifier);
-        // return User::find($identifier);
+        logger()->debug('retrieveById', [$identifier]);
+        return $this->userService->find($identifier);
     }
 
     public function retrieveByToken($identifier, $token)

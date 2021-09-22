@@ -40,7 +40,7 @@ abstract class MockEntityService implements EntityService
     {
         $model = Entities::entity($model, $this->getClass());
 
-        $model->setAttribute('id', 999);
+        $model->setAttribute('id', random_int(1, 99999));
 
         return $model;
     }

@@ -2,22 +2,23 @@
 
 namespace Modules\Auth\Services\Web;
 
+use Modules\Auth\Models\User;
 use Modules\Auth\Services\Interfaces\UserService;
+use Modules\Core\Services\WebEntityService;
 
-class WebUserService implements UserService
+class WebUserService extends WebEntityService implements UserService
 {
-    function find($id)
+    function find($id): array
     {
         return [
-            'id' => 90,
-            'email' => 'dom@digidom.co.uk',
-            'username' => 'dom'
+            'id' => 4,
+            'email' => '',
+            'username' => ''
         ];
     }
 
-    function query(array $params)
+    protected function getClass(): string
     {
-        // TODO: Implement query() method.
+        return User::class;
     }
-
 }

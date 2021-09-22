@@ -17,7 +17,10 @@ trait BindsServices
             if ($useMocks) {
                 $this->bindService($interface, $implementations['mock']);
             } else {
-                $this->bindService($interface, $implementations['api']);
+                if (isset($implementations['api'])){
+                    $this->bindService($interface, $implementations['api']);
+                }
+                // $this->bindService($interface, $implementations['api']);
             }
         }
     }

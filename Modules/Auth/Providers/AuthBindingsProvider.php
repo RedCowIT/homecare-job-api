@@ -14,7 +14,7 @@ class AuthBindingsProvider extends BindingsServiceProvider
         return [
             UserService::class => [
                 'mock' => MockUserService::class,
-                'web' => WebUserService::class
+                'api' => WebUserService::class
             ]
         ];
     }

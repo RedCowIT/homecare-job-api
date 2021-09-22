@@ -13,13 +13,13 @@ class MockProductService extends MockEntityService implements ProductService
     protected array $data = [
         [
             "id" => 1,
-            "categoryId" => 216,
-            "rangeId" => 9,
-            "productCode" => "DYS908950-14",
-            "description" => 'Cyclone release catch titanium dyson dc14',
+            "categoryId" => 232,
+            "rangeId" => null,
+            "productCode" => "HH400",
+            "description" => 'Powersonic Cordless Handheld Vacuum Cleaner',
             "vatStatusId" => '5',
-            'defaultPrice' => 3.99,
-            'active' => trye
+            'defaultPrice' => 379,
+            'active' => true
         ]
     ];
 }
