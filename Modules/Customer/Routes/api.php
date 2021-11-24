@@ -33,4 +33,7 @@ Route::group([
         'CustomerPlanController',
         config('app.route_resource.standard'));
 
+    Route::resource('customerPlanAppliances',
+        'CustomerPlanApplianceController',
+        config('app.route_resource.standard'));
 });

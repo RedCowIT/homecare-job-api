@@ -44,4 +44,8 @@ Route::group([
     Route::resource('products',
         'ProductController',
         config('app.route_resource.readonly'));
+
+    Route::resource('productCategories',
+        'ProductCategoryController',
+        config('app.route_resource.readonly'));
 });

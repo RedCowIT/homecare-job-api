@@ -14,12 +14,12 @@ class MockApplianceTypeService extends MockEntityService implements ApplianceTyp
         [
             "id" => 1,
             "description" => 'Vacuum',
-            "appImgURL" => 'vacuum'
+            "icon" => 'vacuum'
         ],
         [
             "id" => 2,
             "description" => 'Oven',
-            "appImgURL" => 'oven'
+            "icon" => 'oven'
         ]
     ];
 }

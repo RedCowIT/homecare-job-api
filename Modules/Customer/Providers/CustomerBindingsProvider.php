@@ -5,10 +5,12 @@ namespace Modules\Customer\Providers;
 use Modules\Core\Providers\BindingsServiceProvider;
 use Modules\Customer\Services\Interfaces\CustomerAddressService;
 use Modules\Customer\Services\Interfaces\CustomerApplianceService;
+use Modules\Customer\Services\Interfaces\CustomerPlanApplianceService;
 use Modules\Customer\Services\Interfaces\CustomerPlanService;
 use Modules\Customer\Services\Interfaces\CustomerService;
 use Modules\Customer\Services\Mock\MockCustomerAddressService;
 use Modules\Customer\Services\Mock\MockCustomerApplianceService;
+use Modules\Customer\Services\Mock\MockCustomerPlanApplianceService;
 use Modules\Customer\Services\Mock\MockCustomerPlanService;
 use Modules\Customer\Services\Mock\MockCustomerService;
 use Modules\Customer\Services\Web\WebCustomerAddressService;
@@ -32,6 +34,10 @@ class CustomerBindingsProvider extends BindingsServiceProvider
             ],
             CustomerPlanService::class => [
                 'mock' => MockCustomerPlanService::class,
+                'api' => null
+            ],
+            CustomerPlanApplianceService::class => [
+                'mock' => MockCustomerPlanApplianceService::class,
                 'api' => null
             ]
         ];

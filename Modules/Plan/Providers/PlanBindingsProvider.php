@@ -3,9 +3,11 @@
 namespace Modules\Plan\Providers;
 
 use Modules\Core\Providers\BindingsServiceProvider;
+use Modules\Plan\Services\Interfaces\AppliancePlanService;
 use Modules\Plan\Services\Interfaces\PlanPaymentPeriodService;
 use Modules\Plan\Services\Interfaces\PlanService;
 use Modules\Plan\Services\Interfaces\PlanTypeService;
+use Modules\Plan\Services\Mock\MockAppliancePlanService;
 use Modules\Plan\Services\Mock\MockPlanPaymentPeriodService;
 use Modules\Plan\Services\Mock\MockPlanService;
 use Modules\Plan\Services\Mock\MockPlanTypeService;
@@ -25,6 +27,10 @@ class PlanBindingsProvider extends BindingsServiceProvider
             ],
             PlanService::class => [
                 'mock' => MockPlanService::class,
+                'web' => null
+            ],
+            AppliancePlanService::class => [
+                'mock' => MockAppliancePlanService::class,
                 'web' => null
             ]
         ];

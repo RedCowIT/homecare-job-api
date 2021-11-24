@@ -29,4 +29,8 @@ Route::group([
         'PlanController',
         config('app.route_resource.standard'));
 
+    Route::post('calculateAppliancePlanPrice', [
+        \Modules\Plan\Http\Controllers\AppliancePlanController::class, 'calculate'
+    ])->name('calculateAppliancePlanPrice');
+
 });

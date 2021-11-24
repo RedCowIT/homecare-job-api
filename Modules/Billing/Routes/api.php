@@ -45,14 +45,21 @@ Route::group([
 
     Route::resource('invoices',
     'Invoice\InvoiceController',
-    config('app.route_reousrce.standard'));
+    config('app.route_resource.standard'));
 
     Route::resource('invoiceItems',
         'Invoice\InvoiceItemController',
-        config('app.route_reousrce.standard'));
+        config('app.route_resource.standard'));
+
+    Route::resource('invoicePayments',
+        'Invoice\InvoicePaymentController',
+        config('app.route_resource.standard'));
+
+    Route::resource('invoicePaymentTypes',
+        'Invoice\InvoicePaymentTypeController',
+        config('app.route_resource.standard'));
 
     Route::resource('invoiceItemTypes',
         'Invoice\InvoiceItemTypeController',
-        config('app.route_reousrce.standard'));
-
+        config('app.route_resource.standard'));
 });

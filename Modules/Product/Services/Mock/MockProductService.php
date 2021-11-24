@@ -20,6 +20,26 @@ class MockProductService extends MockEntityService implements ProductService
             "vatStatusId" => '5',
             'defaultPrice' => 379,
             'active' => true
+        ],
+        [
+            "id" => 2,
+            "categoryId" => 1,
+            "rangeId" => null,
+            "productCode" => "001",
+            "description" => 'Vacuum Service',
+            "vatStatusId" => '5',
+            'defaultPrice' => 50,
+            'active' => true
+        ],
+        [
+            "id" => 3,
+            "categoryId" => 1,
+            "rangeId" => null,
+            "productCode" => "001",
+            "description" => 'Oven Clean Service',
+            "vatStatusId" => '5',
+            'defaultPrice' => 150,
+            'active' => true
         ]
     ];
 }

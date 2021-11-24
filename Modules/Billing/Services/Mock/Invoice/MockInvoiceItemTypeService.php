@@ -13,15 +13,35 @@ class MockInvoiceItemTypeService extends MockEntityService implements InvoiceIte
     protected array $data = [
         [
             'id' => 1,
-            'description' => 'Appliance'
+            'description' => 'Standard'
         ],
         [
             'id' => 2,
-            'description' => 'Plan'
+            'description' => 'Free Text'
         ],
         [
             'id' => 3,
-            'description' => 'Product'
+            'description' => 'Additional Charge'
+        ],
+        [
+            'id' => 4,
+            'description' => 'To Order'
+        ],
+        [
+            'id' => 5,
+            'description' => 'Engineer Parts'
+        ],
+        [
+            'id' => 6,
+            'description' => 'Engineer Plan'
+        ],
+        [
+            'id' => 7,
+            'description' => 'Engineer Service'
+        ],
+        [
+            'id' => 8,
+            'description' => 'Engineer Misc'
         ]
     ];
 }
