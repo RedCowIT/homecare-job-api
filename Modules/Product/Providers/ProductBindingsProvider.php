@@ -19,6 +19,14 @@ use Modules\Product\Services\Mock\MockCommercialProductService;
 use Modules\Product\Services\Mock\MockManufacturerService;
 use Modules\Product\Services\Mock\MockProductCategoryService;
 use Modules\Product\Services\Mock\MockProductService;
+use Modules\Product\Services\Web\WebApplianceModelService;
+use Modules\Product\Services\Web\WebAppliancePriceRangeService;
+use Modules\Product\Services\Web\WebApplianceTypeService;
+use Modules\Product\Services\Web\WebBrandService;
+use Modules\Product\Services\Web\WebCommercialProductService;
+use Modules\Product\Services\Web\WebManufacturerService;
+use Modules\Product\Services\Web\WebProductCategoryService;
+use Modules\Product\Services\Web\WebProductService;
 
 class ProductBindingsProvider extends BindingsServiceProvider
 {
@@ -27,35 +35,35 @@ class ProductBindingsProvider extends BindingsServiceProvider
         return [
             ApplianceModelService::class => [
                 'mock' => MockApplianceModelService::class,
-                'api' => null
+                'api' => WebApplianceModelService::class
             ],
             AppliancePriceRangeService::class => [
                 'mock' => MockAppliancePriceRangeService::class,
-                'api' => null
+                'api' => WebAppliancePriceRangeService::class
             ],
             ApplianceTypeService::class => [
                 'mock' => MockApplianceTypeService::class,
-                'api' => null
+                'api' => WebApplianceTypeService::class
             ],
             BrandService::class => [
                 'mock' => MockBrandService::class,
-                'api' => null
+                'api' => WebBrandService::class
             ],
             ManufacturerService::class => [
                 'mock' => MockManufacturerService::class,
-                'api' => null
+                'api' => WebManufacturerService::class
             ],
             ProductService::class => [
                 'mock' => MockProductService::class,
-                'api' => null
+                'api' => WebProductService::class
             ],
             ProductCategoryService::class => [
                 'mock' => MockProductCategoryService::class,
-                'api' => null
+                'api' => WebProductCategoryService::class
             ],
             CommercialProductService::class => [
                 'mock' => MockCommercialProductService::class,
-                'api' => null
+                'api' => WebCommercialProductService::class
             ]
         ];
     }

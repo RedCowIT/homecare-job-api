@@ -11,6 +11,10 @@ use Modules\Plan\Services\Mock\MockAppliancePlanService;
 use Modules\Plan\Services\Mock\MockPlanPaymentPeriodService;
 use Modules\Plan\Services\Mock\MockPlanService;
 use Modules\Plan\Services\Mock\MockPlanTypeService;
+use Modules\Plan\Services\Web\WebAppliancePlanService;
+use Modules\Plan\Services\Web\WebPlanPaymentPeriodService;
+use Modules\Plan\Services\Web\WebPlanService;
+use Modules\Plan\Services\Web\WebPlanTypeService;
 
 class PlanBindingsProvider extends BindingsServiceProvider
 {
@@ -19,19 +23,19 @@ class PlanBindingsProvider extends BindingsServiceProvider
         return [
             PlanPaymentPeriodService::class => [
                 'mock' => MockPlanPaymentPeriodService::class,
-                'web' => null
+                'api' => WebPlanPaymentPeriodService::class
             ],
             PlanTypeService::class => [
                 'mock' => MockPlanTypeService::class,
-                'web' => null
+                'api' => WebPlanTypeService::class
             ],
             PlanService::class => [
                 'mock' => MockPlanService::class,
-                'web' => null
+                'api' => WebPlanService::class
             ],
             AppliancePlanService::class => [
                 'mock' => MockAppliancePlanService::class,
-                'web' => null
+                'api' => WebAppliancePlanService::class
             ]
         ];
     }

@@ -8,8 +8,5 @@ use Modules\Customer\Services\Interfaces\CustomerAddressService;
 
 class WebCustomerAddressService extends WebEntityService implements CustomerAddressService
 {
-    protected function getClass(): string
-    {
-        return CustomerAddress::class;
-    }
+    protected string $class = CustomerAddress::class;
 }

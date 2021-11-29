@@ -52,6 +52,8 @@ class DevReset extends Command
 
         \Artisan::call('dev:droptables', ['--force' => true]);
 
+        \Artisan::call('telescope:install');
+
         \Artisan::call('migrate', ['--step' => true]);
 
         $this->info('Migrations reset');

@@ -29,7 +29,7 @@ Route::group([
         'ApplianceTypeController',
         config('app.route_resource.readonly'));
 
-    Route::resource('brands',
+    Route::resource('applianceBrands',
         'BrandController',
         config('app.route_resource.readonly'));
 

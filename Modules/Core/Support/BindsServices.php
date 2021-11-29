@@ -15,6 +15,7 @@ trait BindsServices
 
         foreach ($binds as $interface => $implementations) {
             if ($useMocks) {
+//                logger()->debug('Bind', ['interface' => $interface, 'imp' => $implementations['mock']]);
                 $this->bindService($interface, $implementations['mock']);
             } else {
                 if (isset($implementations['api'])){

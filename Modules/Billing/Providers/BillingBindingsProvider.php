@@ -2,13 +2,10 @@
 
 namespace Modules\Billing\Providers;
 
-use Modules\Billing\Services\Interfaces\Invoice\InvoiceApplianceDetailService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoiceItemService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoiceItemTypeService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoicePaymentService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoicePaymentTypeService;
-use Modules\Billing\Services\Interfaces\Invoice\InvoicePlanDetailService;
-use Modules\Billing\Services\Interfaces\Invoice\InvoiceProductDetailService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoiceService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteApplianceDetailService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteItemService;
@@ -16,13 +13,10 @@ use Modules\Billing\Services\Interfaces\Quote\QuoteItemTypeService;
 use Modules\Billing\Services\Interfaces\Quote\QuotePlanDetailService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteProductDetailService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteService;
-use Modules\Billing\Services\Mock\Invoice\MockInvoiceApplianceDetailService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoiceItemService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoiceItemTypeService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoicePaymentService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoicePaymentTypeService;
-use Modules\Billing\Services\Mock\Invoice\MockInvoicePlanDetailService;
-use Modules\Billing\Services\Mock\Invoice\MockInvoiceProductDetailService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoiceService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteApplianceDetailService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteItemService;
@@ -30,6 +24,17 @@ use Modules\Billing\Services\Mock\Quote\MockQuoteItemTypeService;
 use Modules\Billing\Services\Mock\Quote\MockQuotePlanDetailService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteProductDetailService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteService;
+use Modules\Billing\Services\Web\Invoice\WebInvoiceItemService;
+use Modules\Billing\Services\Web\Invoice\WebInvoiceItemTypeService;
+use Modules\Billing\Services\Web\Invoice\WebInvoicePaymentService;
+use Modules\Billing\Services\Web\Invoice\WebInvoicePaymentTypeService;
+use Modules\Billing\Services\Web\Invoice\WebInvoiceService;
+use Modules\Billing\Services\Web\Quote\WebQuoteApplianceDetailService;
+use Modules\Billing\Services\Web\Quote\WebQuoteItemService;
+use Modules\Billing\Services\Web\Quote\WebQuoteItemTypeService;
+use Modules\Billing\Services\Web\Quote\WebQuotePlanDetailService;
+use Modules\Billing\Services\Web\Quote\WebQuoteProductDetailService;
+use Modules\Billing\Services\Web\Quote\WebQuoteService;
 use Modules\Core\Providers\BindingsServiceProvider;
 
 class BillingBindingsProvider extends BindingsServiceProvider
@@ -39,47 +44,47 @@ class BillingBindingsProvider extends BindingsServiceProvider
         return [
             QuoteService::class => [
                 'mock' => MockQuoteService::class,
-                'api' => null
+                'api' => WebQuoteService::class
             ],
             QuoteItemService::class => [
                 'mock' => MockQuoteItemService::class,
-                'api' => null
+                'api' => WebQuoteItemService::class
             ],
             QuoteItemTypeService::class => [
                 'mock' => MockQuoteItemTypeService::class,
-                'api' => null
+                'api' => WebQuoteItemTypeService::class
             ],
             QuoteApplianceDetailService::class => [
                 'mock' => MockQuoteApplianceDetailService::class,
-                'api' => null
+                'api' => WebQuoteApplianceDetailService::class
             ],
             QuoteProductDetailService::class => [
                 'mock' => MockQuoteProductDetailService::class,
-                'api' => null
+                'api' => WebQuoteProductDetailService::class
             ],
             QuotePlanDetailService::class => [
                 'mock' => MockQuotePlanDetailService::class,
-                'api' => null
+                'api' => WebQuotePlanDetailService::class
             ],
             InvoiceService::class => [
                 'mock' => MockInvoiceService::class,
-                'api' => null
+                'api' => WebInvoiceService::class
             ],
             InvoiceItemService::class => [
                 'mock' => MockInvoiceItemService::class,
-                'api' => null
+                'api' => WebInvoiceItemService::class
             ],
             InvoiceItemTypeService::class => [
                 'mock' => MockInvoiceItemTypeService::class,
-                'api' => null
+                'api' => WebInvoiceItemTypeService::class
             ],
             InvoicePaymentService::class => [
                 'mock' => MockInvoicePaymentService::class,
-                'api' => null
+                'api' => WebInvoicePaymentService::class
             ],
             InvoicePaymentTypeService::class => [
                 'mock' => MockInvoicePaymentTypeService::class,
-                'api' => null
+                'api' => WebInvoicePaymentTypeService::class
             ]
         ];
     }
