@@ -12,13 +12,8 @@ class WebUserService extends WebEntityService implements UserService
     function find($id): array
     {
         // Convert Auth0 to user id
-        $user = $this->auth0Service()->getUserByAuth0Id($id);
 
-        return [
-            'id' => 4,
-            'email' => '',
-            'username' => ''
-        ];
+        return ['id' => $id];
     }
 
     protected function getClass(): string

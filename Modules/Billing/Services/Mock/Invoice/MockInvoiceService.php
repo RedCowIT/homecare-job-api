@@ -14,9 +14,20 @@ class MockInvoiceService extends MockEntityService implements InvoiceService
         [
             "id" => 1,
             "appointmentId" => 1,
-            "invoiceRef" => "",
+            "customerId" => 1,
+            "invoiceNumber" => "E65695X",
+            "invoiceDate" => "2021-12-01 00:00:00.000",
             "notes" => "",
-            "accepted" => false
+            "grossAmount" => 29.99,
+            "totalNetAmount" => 24.99,
+            "totalVATAmount" => 5,
+            "invoiceStatusId" => 1,
+            "published" => 0
         ]
     ];
+
+    function save($model)
+    {
+        return $this->data[0];
+    }
 }

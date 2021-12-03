@@ -17,6 +17,12 @@ Route::group([
     'middleware' => ['auth:api']
 ], function () {
 
+    Route::get('appDataId', 'AppDataIdController@index');
+
     Route::get('appDataIds', 'AppDataIdController@index');
+
+    Route::resource('policies',
+        'PolicyController',
+        config('app.route_resource.readonly'));
 
 });

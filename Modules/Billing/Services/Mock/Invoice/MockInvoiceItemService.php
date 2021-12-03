@@ -11,11 +11,7 @@ class MockInvoiceItemService extends MockEntityService implements InvoiceItemSer
 {
     protected string $class = InvoiceItem::class;
 
-    protected array $data = [
-        [
-
-        ]
-    ];
+    protected array $data = [];
 
     function save($model)
     {

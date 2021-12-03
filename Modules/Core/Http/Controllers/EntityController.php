@@ -2,6 +2,7 @@
 
 namespace Modules\Core\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller;
@@ -18,7 +19,14 @@ abstract class EntityController extends Controller
 
     public function index(Request $request)
     {
-        return new JsonResource($this->entityService->query($request->all()));
+        $response = $this->entityService->query($request->all());
+
+        if (!is_object($response))
+        {
+            return new JsonResponse(['data' => $response]);
+        }
+
+        return new JsonResource($response);
     }
 
     /**
@@ -55,10 +63,9 @@ abstract class EntityController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param int $id
-     * @return JsonResource
      */
     public function destroy($id)
     {
-        return new JsonResource($this->entityService->delete($id));
+        return new JsonResponse(['data' => ['id' => $this->entityService->delete($id)]]);
     }
 }

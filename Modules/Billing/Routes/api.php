@@ -57,9 +57,13 @@ Route::group([
 
     Route::resource('invoicePaymentTypes',
         'Invoice\InvoicePaymentTypeController',
-        config('app.route_resource.standard'));
+        config('app.route_resource.readonly'));
 
     Route::resource('invoiceItemTypes',
         'Invoice\InvoiceItemTypeController',
-        config('app.route_resource.standard'));
+        config('app.route_resource.readonly'));
+
+    Route::resource('invoiceStatuses',
+        'Invoice\InvoiceStatusController',
+        config('app.route_resource.readonly'));
 });

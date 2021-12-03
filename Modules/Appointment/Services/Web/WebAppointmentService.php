@@ -9,4 +9,5 @@ use Modules\Core\Services\WebEntityService;
 class WebAppointmentService extends WebEntityService implements AppointmentService
 {
     protected string $class = Appointment::class;
+
 }

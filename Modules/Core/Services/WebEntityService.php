@@ -15,6 +15,8 @@ abstract class WebEntityService implements EntityService
 
     function find($id)
     {
+        logger()->debug('API FIND', ['id' => $id]);
+
         $url = sprintf('%s/%s/%d', $this->getApiUrl(), $this->getUri(), $id);
 
         $response = $this->http()->get($url);
@@ -26,9 +28,11 @@ abstract class WebEntityService implements EntityService
 
     function query(array $params = [])
     {
+        logger()->debug('API GET', ['params' => $params]);
+
         $url = sprintf('%s/%s', $this->getApiUrl(), $this->getUri());
 
-        $response = $this->http()->get($url);
+        $response = $this->http()->get($url, $params);
 
         $this->logResponse($url, $response);
 
@@ -43,6 +47,8 @@ abstract class WebEntityService implements EntityService
      */
     function save($model)
     {
+        logger()->debug('API SAVE', ['model' => $model]);
+
         $model = Entities::entity($model, $this->getClass());
 
         $model->setAttribute('id', 999);
@@ -77,8 +83,7 @@ abstract class WebEntityService implements EntityService
     {
         $user = Auth::user();
 
-
-        return 5;
+        return $user['id'];
     }
 
     protected function getAccessToken(): string
@@ -106,7 +111,13 @@ abstract class WebEntityService implements EntityService
             return $this->handleErrorResponse($response);
         }
 
-        return json_decode($response->json(), true);
+        $body = $response->json();
+
+        if (intval($body)){
+            return $body;
+        }
+
+        return json_decode($body, true);
     }
 
     protected function getClass(): string
