@@ -15,6 +15,7 @@ use Modules\Customer\Services\Mock\MockCustomerPlanService;
 use Modules\Customer\Services\Mock\MockCustomerService;
 use Modules\Customer\Services\Web\WebCustomerAddressService;
 use Modules\Customer\Services\Web\WebCustomerApplianceService;
+use Modules\Customer\Services\Web\WebCustomerPlanApplianceService;
 use Modules\Customer\Services\Web\WebCustomerPlanService;
 use Modules\Customer\Services\Web\WebCustomerService;
 
@@ -41,7 +42,7 @@ class CustomerBindingsProvider extends BindingsServiceProvider
             ],
             CustomerPlanApplianceService::class => [
                 'mock' => MockCustomerPlanApplianceService::class,
-                'api' => WebCustomerApplianceService::class
+                'api' => WebCustomerPlanApplianceService::class
             ]
         ];
     }
