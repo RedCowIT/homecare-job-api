@@ -29,6 +29,10 @@ Route::group([
         'CustomerApplianceController',
         config('app.route_resource.standard'));
 
+    Route::resource('customerApplianceTypes',
+        'CustomerApplianceTypeController',
+        config('app.route_resource.readonly'));
+
     Route::resource('customerPlans',
         'CustomerPlanController',
         config('app.route_resource.standard'));

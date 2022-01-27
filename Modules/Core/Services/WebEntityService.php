@@ -3,11 +3,13 @@
 namespace Modules\Core\Services;
 
 use Illuminate\Http\Client\Response;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Modules\Core\Entities\Entity;
 use Modules\Core\Support\Entities;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class WebEntityService implements EntityService
 {
@@ -47,18 +49,28 @@ abstract class WebEntityService implements EntityService
      */
     function save($model)
     {
-        logger()->debug('API SAVE', ['model' => $model]);
+        logger()->debug('API SAVE...', ['model' => $model]);
 
-        $model = Entities::entity($model, $this->getClass());
+        $url = sprintf('%s/%s', $this->getApiUrl(), $this->getUri());
 
-        $model->setAttribute('id', 999);
+        $response = $this->http()->post($url, $model);
 
-        return $model;
+        $this->logResponse($url, $response);
+
+        return $this->processResponse($response);
     }
 
     function update($id, $model)
     {
-        return Entities::entity($model, $this->getClass());
+        logger()->debug('API UPDATE...', ['model' => $model]);
+
+        $url = sprintf('%s/%s/%d', $this->getApiUrl(), $this->getUri(), $model['id']);
+
+        $response = $this->http()->put($url, $model);
+
+        $this->logResponse($url, $response);
+
+        return $this->processResponse($response);
     }
 
     function delete($id)
@@ -105,15 +117,16 @@ abstract class WebEntityService implements EntityService
         return rtrim(env('WEB_API_URL'), "/");
     }
 
-    protected function processResponse(Response $response)
+    protected function processResponse($response)
     {
-        if ($response->status() !== 200) {
-            return $this->handleErrorResponse($response);
+        if ($this->getResponseStatus($response) !== 200) {
+            $this->handleErrorResponse($response);
+            return null;
         }
 
-        $body = $response->json();
+        $body = json_decode($this->getResponseBody($response), true);;
 
-        if (intval($body)){
+        if (intval($body)) {
             return $body;
         }
 
@@ -125,22 +138,42 @@ abstract class WebEntityService implements EntityService
         return $this->class;
     }
 
-    protected function handleErrorResponse(Response $response)
+    protected function handleErrorResponse($response)
     {
-        switch ($response->status()){
+        logger()->warning($this->getResponseBody($response));
+
+        switch ($this->getResponseStatus($response)) {
             case 200:
 
                 break;
         }
 
-        return null;
+        abort($this->getResponseStatus($response), $this->getResponseBody($response));
     }
 
-    protected function logResponse(string $url, \Illuminate\Http\Client\Response $response)
+    protected function logResponse(string $url, $response)
     {
         logger()->debug($url, [
-            'response.status' => $response->status(),
-            'response.body' => $response->body()
+            'response.status' => $this->getResponseStatus($response),
+            'response.body' => $this->getResponseBody($response)
         ]);
+    }
+
+    protected function getResponseStatus($response): int
+    {
+        if ($response instanceof ResponseInterface) {
+            return $response->getStatusCode();
+        }
+
+        return $response->getStatusCode();
+    }
+
+    protected function getResponseBody($response): string
+    {
+        if ($response instanceof ResponseInterface) {
+            return $response->getBody();
+        }
+
+        return $response->body();
     }
 }

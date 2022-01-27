@@ -13,13 +13,13 @@ class MockApplianceTypeService extends MockEntityService implements ApplianceTyp
     protected array $data = [
         [
             "id" => 1,
-            "description" => 'Vacuum',
-            "icon" => 'vacuum'
+            "description" => 'Washing Machine',
+            "icon" => 'washing-machine'
         ],
         [
             "id" => 2,
-            "description" => 'Oven',
-            "icon" => 'oven'
+            "description" => 'Refrigerator',
+            "icon" => 'fridge'
         ]
     ];
 }
