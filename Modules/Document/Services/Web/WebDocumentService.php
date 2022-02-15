@@ -21,7 +21,7 @@ class WebDocumentService extends WebEntityService implements DocumentService
             [
                 'name' => 'file',
                 'contents' => $file->getContent(),
-                'filename' => $file->getFilename()
+                'filename' => $file->getClientOriginalName()
             ]
         ];
 
