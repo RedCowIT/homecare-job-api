@@ -14,7 +14,9 @@ use Modules\Auth\Http\Controllers\UserController;
 |
 */
 Route::group([
-    'middleware' => ['auth:api']
+    'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('me', [UserController::class, 'authenticatedUser']);
 });
+
+Route::post('/login', [\Modules\Auth\Http\Controllers\SanctumController::class, 'login']);

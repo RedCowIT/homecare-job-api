@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group([
-    'middleware' => ['auth:api']
+    'middleware' => ['auth:sanctum']
 ], function () {
 
     Route::resource('quotes',

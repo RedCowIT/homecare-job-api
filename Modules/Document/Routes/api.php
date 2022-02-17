@@ -12,7 +12,7 @@
 */
 
 Route::group([
-    'middleware' => ['auth:api']
+    'middleware' => ['auth:sanctum']
 ], function () {
 
     Route::resource('documents',
