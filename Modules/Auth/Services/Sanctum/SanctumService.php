@@ -54,6 +54,10 @@ class SanctumService
 
     protected function createUser($userId): User
     {
-        return User::create(['id' => $userId]);
+        User::create(['id' => $userId]);
+
+        // Necessary as create initially returns id of 0
+
+        return User::findOrFail($userId);
     }
 }
