@@ -20,8 +20,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'http://localhost',
-        'https://homecare.digi-dom.co.uk:8100'
+        '*',
     ],
 
     'allowed_origins_patterns' => [],
