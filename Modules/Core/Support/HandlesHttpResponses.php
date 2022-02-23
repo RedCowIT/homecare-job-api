@@ -13,7 +13,13 @@ trait HandlesHttpResponses {
             return null;
         }
 
-        $body = json_decode($this->getResponseBody($response), true);;
+        $responseBody = $this->getResponseBody($response);
+
+        if (strcmp($responseBody, "null", 0)){
+            return null;
+        }
+
+        $body = json_decode($responseBody, true);;
 
         if (intval($body)) {
             return $body;
