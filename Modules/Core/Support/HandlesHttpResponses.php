@@ -15,7 +15,7 @@ trait HandlesHttpResponses {
 
         $responseBody = $this->getResponseBody($response);
 
-        if (strcmp($responseBody, "null", 0)){
+        if (strcmp($responseBody, "null") === 0){
             return null;
         }
 
