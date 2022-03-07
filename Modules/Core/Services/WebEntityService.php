@@ -78,7 +78,15 @@ abstract class WebEntityService implements EntityService
 
     function delete($id)
     {
-        return $id;
+        logger()->debug('API DELETE...', ['id' => $id]);
+
+        $url = sprintf('%s/%s/%d', $this->getApiUrl(), $this->getUri(), $id);
+
+        $response = $this->http()->delete($url, $id);
+
+        $this->logResponse($url, $response);
+
+        return $this->processResponse($response);
     }
 
     function getData(): array
