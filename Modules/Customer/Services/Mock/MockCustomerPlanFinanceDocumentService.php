@@ -12,4 +12,8 @@ class MockCustomerPlanFinanceDocumentService extends MockEntityService implement
 
     protected array $data = [
     ];
+
+    function emailDocument($id, $toAddress){
+        return [];
+    }
 }

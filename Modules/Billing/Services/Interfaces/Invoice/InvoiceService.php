@@ -6,4 +6,6 @@ use Modules\Core\Services\EntityService;
 
 interface InvoiceService extends EntityService {
 
+    function emailInvoice($invoiceId, $toAddress);
+
 }

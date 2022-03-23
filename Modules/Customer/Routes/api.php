@@ -45,6 +45,10 @@ Route::group([
         'CustomerPlanFinanceController',
         config('app.route_resource.standard'));
 
+    Route::post('customerPlanFinanceDocuments/{id}/sendEmail', [
+        \Modules\Customer\Http\Controllers\CustomerPlanFinanceDocumentController::class, 'emailDocument'
+    ])->name('emailCustomerPlanFinanceDocument');
+
     Route::resource('customerPlanFinanceDocuments',
         'CustomerPlanFinanceDocumentController',
         config('app.route_resource.standard'));
@@ -59,5 +63,9 @@ Route::group([
 
     Route::resource('residentialStatuses',
         'ResidentialStatusController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('titles',
+        'TitleController',
         config('app.route_resource.readonly'));
 });

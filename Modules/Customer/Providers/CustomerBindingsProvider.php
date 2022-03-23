@@ -14,6 +14,7 @@ use Modules\Customer\Services\Interfaces\CustomerService;
 use Modules\Customer\Services\Interfaces\EmploymentStatusService;
 use Modules\Customer\Services\Interfaces\EmploymentStatusTimeService;
 use Modules\Customer\Services\Interfaces\ResidentialStatusService;
+use Modules\Customer\Services\Interfaces\TitleService;
 use Modules\Customer\Services\Mock\MockCustomerAddressService;
 use Modules\Customer\Services\Mock\MockCustomerApplianceService;
 use Modules\Customer\Services\Mock\MockCustomerApplianceTypeService;
@@ -25,6 +26,7 @@ use Modules\Customer\Services\Mock\MockCustomerService;
 use Modules\Customer\Services\Mock\MockEmploymentStatusService;
 use Modules\Customer\Services\Mock\MockEmploymentStatusTimeService;
 use Modules\Customer\Services\Mock\MockResidentialStatusService;
+use Modules\Customer\Services\Mock\MockTitleService;
 use Modules\Customer\Services\Web\WebCustomerAddressService;
 use Modules\Customer\Services\Web\WebCustomerApplianceService;
 use Modules\Customer\Services\Web\WebCustomerApplianceTypeService;
@@ -36,6 +38,7 @@ use Modules\Customer\Services\Web\WebCustomerService;
 use Modules\Customer\Services\Web\WebEmploymentStatusService;
 use Modules\Customer\Services\Web\WebEmploymentStatusTimeService;
 use Modules\Customer\Services\Web\WebResidentialStatusService;
+use Modules\Customer\Services\Web\WebTitleService;
 
 class CustomerBindingsProvider extends BindingsServiceProvider
 {
@@ -77,6 +80,10 @@ class CustomerBindingsProvider extends BindingsServiceProvider
             ResidentialStatusService::class => [
                 'mock' => MockResidentialStatusService::class,
                 'api' => WebResidentialStatusService::class
+            ],
+            TitleService::class => [
+                'mock' => MockTitleService::class,
+                'api' => WebTitleService::class
             ],
             EmploymentStatusService::class => [
                 'mock' => MockEmploymentStatusService::class,

@@ -30,4 +30,8 @@ class MockInvoiceService extends MockEntityService implements InvoiceService
     {
         return $this->data[0];
     }
+
+    function emailInvoice($invoiceId, $toAddress){
+        return [];
+    }
 }
