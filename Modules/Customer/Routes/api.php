@@ -40,4 +40,32 @@ Route::group([
     Route::resource('customerPlanAppliances',
         'CustomerPlanApplianceController',
         config('app.route_resource.standard'));
+
+    Route::resource('customerPlanFinances',
+        'CustomerPlanFinanceController',
+        config('app.route_resource.standard'));
+
+    Route::post('customerPlanFinanceDocuments/{id}/sendEmail', [
+        \Modules\Customer\Http\Controllers\CustomerPlanFinanceDocumentController::class, 'emailDocument'
+    ])->name('emailCustomerPlanFinanceDocument');
+
+    Route::resource('customerPlanFinanceDocuments',
+        'CustomerPlanFinanceDocumentController',
+        config('app.route_resource.standard'));
+
+    Route::resource('employmentStatuses',
+        'EmploymentStatusController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('employmentStatusTimes',
+        'EmploymentStatusTimeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('residentialStatuses',
+        'ResidentialStatusController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('titles',
+        'TitleController',
+        config('app.route_resource.readonly'));
 });

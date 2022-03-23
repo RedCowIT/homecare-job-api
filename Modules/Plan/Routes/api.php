@@ -17,6 +17,10 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
 
+    Route::resource('financePlanPeriods',
+        'FinancePlanPeriodController',
+        config('app.route_resource.readonly'));
+
     Route::resource('planPaymentPeriods',
         'PlanPaymentPeriodController',
         config('app.route_resource.readonly'));
@@ -32,5 +36,9 @@ Route::group([
     Route::post('calculateAppliancePlanPrice', [
         \Modules\Plan\Http\Controllers\AppliancePlanController::class, 'calculate'
     ])->name('calculateAppliancePlanPrice');
+
+    Route::post('calculateFinancePlan', [
+        \Modules\Plan\Http\Controllers\FinancePlanController::class, 'calculate'
+    ])->name('calculateFinancePlan');
 
 });

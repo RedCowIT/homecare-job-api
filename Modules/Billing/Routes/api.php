@@ -43,6 +43,10 @@ Route::group([
 
     // Invoices
 
+    Route::post('invoices/{id}/sendEmail', [
+        \Modules\Billing\Http\Controllers\Invoice\InvoiceController::class, 'emailInvoice'
+    ])->name('emailInvoice');
+
     Route::resource('invoices',
     'Invoice\InvoiceController',
     config('app.route_resource.standard'));
@@ -66,4 +70,14 @@ Route::group([
     Route::resource('invoiceStatuses',
         'Invoice\InvoiceStatusController',
         config('app.route_resource.readonly'));
+
+    // Payment
+
+    Route::post('createGlobalPaymentCharge', [
+        \Modules\Billing\Http\Controllers\Payment\GlobalPaymentController::class, 'createPaymentCharge'
+    ])->name('createGlobalPaymentCharge');
+
+    Route::post('processGlobalPaymentResponse', [
+        \Modules\Billing\Http\Controllers\Payment\GlobalPaymentController::class, 'processPaymentResponse'
+    ])->name('processGlobalPaymentResponse');
 });

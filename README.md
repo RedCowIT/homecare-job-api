@@ -1,3 +1,13 @@
+### Troubleshooting
+
+#### Array Offset PHP Errors in Local Dev
+
+Kick Valet to ensure PHP@7.4 used:
+
+    valet stop
+    valet use php@7.4 --force
+    valet start
+
 ### Modules
 
 <table>
