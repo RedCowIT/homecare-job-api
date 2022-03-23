@@ -46,7 +46,12 @@ abstract class EntityController extends Controller
      */
     public function show($id)
     {
-        return new JsonResource($this->entityService->find($id));
+        $entity = $this->entityService->find($id);
+
+        if (!$entity){
+          abort(404);
+        }
+        return new JsonResource($entity);
     }
 
     /**
