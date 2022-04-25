@@ -17,6 +17,10 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
 
+    Route::resource('cardPayments',
+        'Payment\CardPaymentController',
+        config('app.route_resource.standard'));
+
     Route::resource('quotes',
         'Quote\QuoteController',
         config('app.route_resource.standard'));

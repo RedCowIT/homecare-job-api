@@ -7,10 +7,12 @@ use Modules\Customer\Services\Interfaces\CustomerAddressService;
 use Modules\Customer\Services\Interfaces\CustomerApplianceService;
 use Modules\Customer\Services\Interfaces\CustomerApplianceTypeService;
 use Modules\Customer\Services\Interfaces\CustomerPlanApplianceService;
+use Modules\Customer\Services\Interfaces\CustomerPlanChangeService;
 use Modules\Customer\Services\Interfaces\CustomerPlanFinanceDocumentService;
 use Modules\Customer\Services\Interfaces\CustomerPlanFinanceService;
 use Modules\Customer\Services\Interfaces\CustomerPlanService;
 use Modules\Customer\Services\Interfaces\CustomerService;
+use Modules\Customer\Services\Interfaces\DirectDebitDetailsService;
 use Modules\Customer\Services\Interfaces\EmploymentStatusService;
 use Modules\Customer\Services\Interfaces\EmploymentStatusTimeService;
 use Modules\Customer\Services\Interfaces\ResidentialStatusService;
@@ -19,10 +21,12 @@ use Modules\Customer\Services\Mock\MockCustomerAddressService;
 use Modules\Customer\Services\Mock\MockCustomerApplianceService;
 use Modules\Customer\Services\Mock\MockCustomerApplianceTypeService;
 use Modules\Customer\Services\Mock\MockCustomerPlanApplianceService;
+use Modules\Customer\Services\Mock\MockCustomerPlanChangeService;
 use Modules\Customer\Services\Mock\MockCustomerPlanFinanceDocumentService;
 use Modules\Customer\Services\Mock\MockCustomerPlanFinanceService;
 use Modules\Customer\Services\Mock\MockCustomerPlanService;
 use Modules\Customer\Services\Mock\MockCustomerService;
+use Modules\Customer\Services\Mock\MockDirectDebitDetailsService;
 use Modules\Customer\Services\Mock\MockEmploymentStatusService;
 use Modules\Customer\Services\Mock\MockEmploymentStatusTimeService;
 use Modules\Customer\Services\Mock\MockResidentialStatusService;
@@ -31,10 +35,12 @@ use Modules\Customer\Services\Web\WebCustomerAddressService;
 use Modules\Customer\Services\Web\WebCustomerApplianceService;
 use Modules\Customer\Services\Web\WebCustomerApplianceTypeService;
 use Modules\Customer\Services\Web\WebCustomerPlanApplianceService;
+use Modules\Customer\Services\Web\WebCustomerPlanChangeService;
 use Modules\Customer\Services\Web\WebCustomerPlanFinanceDocumentService;
 use Modules\Customer\Services\Web\WebCustomerPlanFinanceService;
 use Modules\Customer\Services\Web\WebCustomerPlanService;
 use Modules\Customer\Services\Web\WebCustomerService;
+use Modules\Customer\Services\Web\WebDirectDebitDetailsService;
 use Modules\Customer\Services\Web\WebEmploymentStatusService;
 use Modules\Customer\Services\Web\WebEmploymentStatusTimeService;
 use Modules\Customer\Services\Web\WebResidentialStatusService;
@@ -77,6 +83,10 @@ class CustomerBindingsProvider extends BindingsServiceProvider
                 'mock' => MockCustomerPlanFinanceDocumentService::class,
                 'api' => WebCustomerPlanFinanceDocumentService::class
             ],
+            CustomerPlanChangeService::class => [
+                'mock' => MockCustomerPlanChangeService::class,
+                'api' => WebCustomerPlanChangeService::class
+            ],
             ResidentialStatusService::class => [
                 'mock' => MockResidentialStatusService::class,
                 'api' => WebResidentialStatusService::class
@@ -92,6 +102,10 @@ class CustomerBindingsProvider extends BindingsServiceProvider
             EmploymentStatusTimeService::class => [
                 'mock' => MockEmploymentStatusTimeService::class,
                 'api' => WebEmploymentStatusTimeService::class
+            ],
+            DirectDebitDetailsService::class => [
+                'mock' => MockDirectDebitDetailsService::class,
+                'api' => WebDirectDebitDetailsService::class
             ]
         ];
     }

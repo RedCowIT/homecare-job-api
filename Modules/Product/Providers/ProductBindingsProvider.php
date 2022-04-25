@@ -11,6 +11,7 @@ use Modules\Product\Services\Interfaces\CommercialProductService;
 use Modules\Product\Services\Interfaces\ManufacturerService;
 use Modules\Product\Services\Interfaces\ProductCategoryService;
 use Modules\Product\Services\Interfaces\ProductService;
+use Modules\Product\Services\Interfaces\ProductStockService;
 use Modules\Product\Services\Mock\MockApplianceModelService;
 use Modules\Product\Services\Mock\MockAppliancePriceRangeService;
 use Modules\Product\Services\Mock\MockApplianceTypeService;
@@ -19,6 +20,7 @@ use Modules\Product\Services\Mock\MockCommercialProductService;
 use Modules\Product\Services\Mock\MockManufacturerService;
 use Modules\Product\Services\Mock\MockProductCategoryService;
 use Modules\Product\Services\Mock\MockProductService;
+use Modules\Product\Services\Mock\MockProductStockService;
 use Modules\Product\Services\Web\WebApplianceModelService;
 use Modules\Product\Services\Web\WebAppliancePriceRangeService;
 use Modules\Product\Services\Web\WebApplianceTypeService;
@@ -27,6 +29,7 @@ use Modules\Product\Services\Web\WebCommercialProductService;
 use Modules\Product\Services\Web\WebManufacturerService;
 use Modules\Product\Services\Web\WebProductCategoryService;
 use Modules\Product\Services\Web\WebProductService;
+use Modules\Product\Services\Web\WebProductStockService;
 
 class ProductBindingsProvider extends BindingsServiceProvider
 {
@@ -60,6 +63,10 @@ class ProductBindingsProvider extends BindingsServiceProvider
             ProductCategoryService::class => [
                 'mock' => MockProductCategoryService::class,
                 'api' => WebProductCategoryService::class
+            ],
+            ProductStockService::class => [
+                'mock' => MockProductStockService::class,
+                'api' => WebProductStockService::class
             ],
             CommercialProductService::class => [
                 'mock' => MockCommercialProductService::class,

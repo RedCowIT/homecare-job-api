@@ -53,6 +53,14 @@ Route::group([
         'CustomerPlanFinanceDocumentController',
         config('app.route_resource.standard'));
 
+    Route::resource('customerPlanChanges',
+        'CustomerPlanChangeController',
+        config('app.route_resource.standard'));
+
+    Route::resource('directDebitDetails',
+        'DirectDebitDetailsController',
+        config('app.route_resource.standard'));
+
     Route::resource('employmentStatuses',
         'EmploymentStatusController',
         config('app.route_resource.readonly'));

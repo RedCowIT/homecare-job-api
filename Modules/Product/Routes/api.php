@@ -45,6 +45,10 @@ Route::group([
         'ProductController',
         config('app.route_resource.readonly'));
 
+    Route::resource('productStocks',
+        'ProductStockController',
+        config('app.route_resource.readonly'));
+
     Route::resource('productCategories',
         'ProductCategoryController',
         config('app.route_resource.readonly'));
