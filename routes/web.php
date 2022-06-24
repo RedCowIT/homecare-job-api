@@ -26,3 +26,15 @@ Route::get('/dev/gp-test', function () {
     return view('dev/gp-test');
 
 });
+
+Route::get('/dev/test-sentry', function(){
+
+    throw new \Exception('Test sentry exception!');
+
+});
+
+Route::get('/dev/phpinfo', function(){
+
+    phpinfo();
+
+});
