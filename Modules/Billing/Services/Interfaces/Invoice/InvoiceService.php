@@ -8,4 +8,6 @@ interface InvoiceService extends EntityService {
 
     function emailInvoice($invoiceId, $toAddress);
 
+    function postInvoice($invoiceId);
+
 }

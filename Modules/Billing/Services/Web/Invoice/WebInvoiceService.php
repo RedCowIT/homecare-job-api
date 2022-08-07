@@ -54,4 +54,16 @@ class WebInvoiceService extends WebEntityService implements InvoiceService
 
         return $this->processResponse($response);
     }
+
+    function postInvoice($invoiceId){
+        $url = sprintf('%s/invoices/%d/sendPost', $this->getApiUrl(), $invoiceId);
+
+        logger()->debug('API SEND POST', ['invoiceId' => $invoiceId]);
+
+        $response = $this->http()->post($url);
+
+        $this->logResponse($url, $response);
+
+        return $this->processResponse($response);
+    }
 }

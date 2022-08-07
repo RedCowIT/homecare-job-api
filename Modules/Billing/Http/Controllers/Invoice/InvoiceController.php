@@ -22,4 +22,13 @@ class InvoiceController extends EntityController
 
         return new JsonResponse();
     }
+
+    public function postInvoice(Request $request, $invoiceId)
+    {
+        $response = $this->entityService->postInvoice($invoiceId);
+
+        logger()->info('postInvoice', ['response' => $response]);
+
+        return new JsonResponse();
+    }
 }

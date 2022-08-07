@@ -51,6 +51,10 @@ Route::group([
         \Modules\Billing\Http\Controllers\Invoice\InvoiceController::class, 'emailInvoice'
     ])->name('emailInvoice');
 
+    Route::post('invoices/{id}/sendPost', [
+        \Modules\Billing\Http\Controllers\Invoice\InvoiceController::class, 'postInvoice'
+    ])->name('emailInvoice');
+
     Route::resource('invoices',
     'Invoice\InvoiceController',
     config('app.route_resource.standard'));
