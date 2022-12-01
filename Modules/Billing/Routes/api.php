@@ -88,4 +88,10 @@ Route::group([
     Route::post('processGlobalPaymentResponse', [
         \Modules\Billing\Http\Controllers\Payment\GlobalPaymentController::class, 'processPaymentResponse'
     ])->name('processGlobalPaymentResponse');
+
+    // Pending Payment
+
+    Route::resource('pendingPayments',
+        'PendingPayment\PendingPaymentController',
+        config('app.route_resource.readonly'));
 });

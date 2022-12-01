@@ -26,4 +26,12 @@ Route::group([
     Route::resource('documentSubTypes',
         'DocumentSubTypeController',
         config('app.route_resource.readonly'));
+
+    Route::resource('references',
+        'ReferenceController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('referenceSections',
+        'ReferenceSectionController',
+        config('app.route_resource.readonly'));
 });

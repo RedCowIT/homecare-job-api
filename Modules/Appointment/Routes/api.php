@@ -38,6 +38,10 @@ Route::group([
         'AppointmentStatusController',
         config('app.route_resource.readonly'));
 
+    Route::resource('appointmentSummaries',
+        'AppointmentSummaryController',
+        config('app.route_resource.readonly'));
+
     Route::resource('appointmentTypes',
         'AppointmentTypeController',
         config('app.route_resource.readonly'));

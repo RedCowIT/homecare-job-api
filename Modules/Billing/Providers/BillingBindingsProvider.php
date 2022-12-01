@@ -10,6 +10,7 @@ use Modules\Billing\Services\Interfaces\Invoice\InvoiceService;
 use Modules\Billing\Services\Interfaces\Invoice\InvoiceStatusService;
 use Modules\Billing\Services\Interfaces\Payment\CardPaymentService;
 use Modules\Billing\Services\Interfaces\Payment\GlobalPaymentService;
+use Modules\Billing\Services\Interfaces\PendingPayment\PendingPaymentService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteApplianceDetailService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteItemService;
 use Modules\Billing\Services\Interfaces\Quote\QuoteItemTypeService;
@@ -24,6 +25,7 @@ use Modules\Billing\Services\Mock\Invoice\MockInvoiceService;
 use Modules\Billing\Services\Mock\Invoice\MockInvoiceStatusService;
 use Modules\Billing\Services\Mock\Payment\MockCardPaymentService;
 use Modules\Billing\Services\Mock\Payment\MockGlobalPaymentService;
+use Modules\Billing\Services\Mock\PendingPayment\MockPendingPaymentService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteApplianceDetailService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteItemService;
 use Modules\Billing\Services\Mock\Quote\MockQuoteItemTypeService;
@@ -38,6 +40,7 @@ use Modules\Billing\Services\Web\Invoice\WebInvoiceService;
 use Modules\Billing\Services\Web\Invoice\WebInvoiceStatusService;
 use Modules\Billing\Services\Web\Payment\WebCardPaymentService;
 use Modules\Billing\Services\Web\Payment\WebGlobalPaymentService;
+use Modules\Billing\Services\Web\PendingPayment\WebPendingPaymentService;
 use Modules\Billing\Services\Web\Quote\WebQuoteApplianceDetailService;
 use Modules\Billing\Services\Web\Quote\WebQuoteItemService;
 use Modules\Billing\Services\Web\Quote\WebQuoteItemTypeService;
@@ -106,6 +109,10 @@ class BillingBindingsProvider extends BindingsServiceProvider
             GlobalPaymentService::class => [
                 'mock' => MockGlobalPaymentService::class,
                 'api' => WebGlobalPaymentService::class
+            ],
+            PendingPaymentService::class => [
+                'mock' => MockPendingPaymentService::class,
+                'api' => WebPendingPaymentService::class
             ]
         ];
     }

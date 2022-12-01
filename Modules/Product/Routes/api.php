@@ -29,6 +29,18 @@ Route::group([
         'ApplianceTypeController',
         config('app.route_resource.readonly'));
 
+    Route::resource('applianceInstallTypes',
+        'ApplianceInstallTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('applianceFuelTypes',
+        'ApplianceFuelTypeController',
+        config('app.route_resource.readonly'));
+
+    Route::resource('applianceTumbleDryerTypes',
+        'ApplianceTumbleDryerTypeController',
+        config('app.route_resource.readonly'));
+
     Route::resource('applianceBrands',
         'BrandController',
         config('app.route_resource.readonly'));

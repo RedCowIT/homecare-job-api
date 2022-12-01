@@ -7,6 +7,7 @@ use Modules\Appointment\Services\Interfaces\AppointmentNoAnswerReasonService;
 use Modules\Appointment\Services\Interfaces\AppointmentNoAnswerService;
 use Modules\Appointment\Services\Interfaces\AppointmentService;
 use Modules\Appointment\Services\Interfaces\AppointmentStatusService;
+use Modules\Appointment\Services\Interfaces\AppointmentSummaryService;
 use Modules\Appointment\Services\Interfaces\AppointmentTypeService;
 use Modules\Appointment\Services\Interfaces\AppointmentVisitService;
 use Modules\Appointment\Services\Interfaces\CallTypeClassService;
@@ -16,6 +17,7 @@ use Modules\Appointment\Services\Mock\MockAppointmentNoAnswerReasonService;
 use Modules\Appointment\Services\Mock\MockAppointmentNoAnswerService;
 use Modules\Appointment\Services\Mock\MockAppointmentService;
 use Modules\Appointment\Services\Mock\MockAppointmentStatusService;
+use Modules\Appointment\Services\Mock\MockAppointmentSummaryService;
 use Modules\Appointment\Services\Mock\MockAppointmentTypeService;
 use Modules\Appointment\Services\Mock\MockAppointmentVisitService;
 use Modules\Appointment\Services\Mock\MockCallTypeClassService;
@@ -25,6 +27,7 @@ use Modules\Appointment\Services\Web\WebAppointmentNoAnswerReasonService;
 use Modules\Appointment\Services\Web\WebAppointmentNoAnswerService;
 use Modules\Appointment\Services\Web\WebAppointmentService;
 use Modules\Appointment\Services\Web\WebAppointmentStatusService;
+use Modules\Appointment\Services\Web\WebAppointmentSummaryService;
 use Modules\Appointment\Services\Web\WebAppointmentTypeService;
 use Modules\Appointment\Services\Web\WebAppointmentVisitService;
 use Modules\Appointment\Services\Web\WebCallTypeClassService;
@@ -59,6 +62,10 @@ class AppointmentBindingsProvider extends BindingsServiceProvider
             AppointmentTypeService::class => [
                 'mock' => MockAppointmentTypeService::class,
                 'api' => WebAppointmentTypeService::class
+            ],
+            AppointmentSummaryService::class => [
+              'mock' => MockAppointmentSummaryService::class,
+              'api' => WebAppointmentSummaryService::class
             ],
             AppointmentVisitService::class => [
                 'mock' => MockAppointmentVisitService::class,
